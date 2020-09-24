@@ -20,7 +20,7 @@ public class PersonaDAO implements CRUD{
     @Override
     public List listar() {
         ArrayList<Persona> listaPersona = new ArrayList();
-        String sql = "select * from persona";
+        String sql = "select * from personas";
         try{
             con = conect.getConnection();
             ps = con.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public Persona list(int id) {
-        String sql = "select * from persona where codigoPersona= "+id;
+        String sql = "select * from personas where codigoPersona= "+id;
         try{
             con = conect.getConnection();
             ps = con.prepareStatement(sql);
@@ -59,7 +59,7 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public boolean add(Persona per) {
-        String sql = "insert into persona(DPI, nombrePersona) values ('"+per.getDPI()+"','"+per.getNombrePersona()+"')";
+        String sql = "insert into personas(DPI, nombrePersona) values ('"+per.getDPI()+"','"+per.getNombrePersona()+"')";
         try{
             con = conect.getConnection();
             ps = con.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public boolean edit(Persona per) {
-        String sql = "update persona set DPI= '"+per.getDPI()+"', nombrePersona= '"+per.getNombrePersona()+"'where codigoPersona= " +per.getCodigoPersona();
+        String sql = "update personas set DPI= '"+per.getDPI()+"', nombrePersona= '"+per.getNombrePersona()+"'where codigoPersona= " +per.getCodigoPersona();
         try{
             con = conect.getConnection();
             ps = con.prepareStatement(sql);
@@ -85,7 +85,7 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public boolean eliminar(int id) {
-        String sql = "delete from persona where codigoPersona ="+id;
+        String sql = "delete from personas where codigoPersona ="+id;
         try{
             con = conect.getConnection();
             ps = con.prepareStatement(sql);
